@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {UsersModule} from "./users/users.module";
 import {ProductsModule} from "./products/products.module";
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import {ProductsModule} from "./products/products.module";
     MatToolbarModule,
     MatTableModule,
     UsersModule,
-    ProductsModule
+    ProductsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
