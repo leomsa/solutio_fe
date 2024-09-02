@@ -12,8 +12,14 @@ export class ProductsService {
   }
 
   private readonly API  = 'http://localhost:8080/products/allproducts'
+  private readonly API_DELETE = 'http://localhost:8080/products'
 
   listAllProducts() {
     return this.httpClient.get<Products[]>(this.API);
+  }
+
+  deleteProduct(id: number): Observable<any> {
+    const url = `${this.API_DELETE}/${id}`;
+    return this.httpClient.delete(url);
   }
 }

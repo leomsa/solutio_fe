@@ -8,6 +8,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatTableModule} from "@angular/material/table";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {HttpClientModule} from "@angular/common/http";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {HttpClientModule} from "@angular/common/http";
     MatCardModule,
     MatTableModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ]
 })
 export class ProductsModule {

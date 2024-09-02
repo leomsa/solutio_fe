@@ -1,8 +1,19 @@
 <mat-card>
 <!--  <mat-toolbar color="primary">-->
 <!--  </mat-toolbar>-->
-  <div *ngIf="products$ | async as patients">
+  <div *ngIf="products$ | async as products">
     <table mat-table [dataSource]="products$" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let product">
+          <span class="actionButtons">
+            <mat-icon class="custom-mini-fab" color="primary">edit</mat-icon>
+            <mat-icon class="custom-mini-fab" color="primary" (click)="deleteProductByID(product.id)">delete
+            </mat-icon>
+          </span>
+        </td>
+      </ng-container>
 
       <!-- Position Column -->
       <ng-container matColumnDef="Produto">

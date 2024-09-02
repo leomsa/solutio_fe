@@ -12,7 +12,7 @@ export class ListComponent implements OnInit {
 
   products$: Observable<Products[]>;
 
-  displayedColumns = ['Produto', 'Fornecedor', 'Valor'];
+  displayedColumns = ['Actions', 'Produto', 'Fornecedor', 'Valor'];
 
   constructor(
     private productService: ProductsService) {
@@ -22,6 +22,17 @@ export class ListComponent implements OnInit {
           return patients;
         })
       );
+  }
+
+  deleteProductByID(id: number): void {
+    this.productService.deleteProduct(id).subscribe({
+      next: () => {
+        window.location.reload();
+      },
+      error: (err) => {
+        console.error('Erro ao deletar produto', err);
+      }
+    });
   }
 
   ngOnInit(): void {
