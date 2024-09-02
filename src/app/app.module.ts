@@ -8,6 +8,7 @@ import {MatTableModule} from '@angular/material/table';
 import {UsersModule} from "./users/users.module";
 import {ProductsModule} from "./products/products.module";
 import {MatCardModule} from '@angular/material/card';
+import {HttpClientModule} from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import {MatCardModule} from '@angular/material/card';
     MatTableModule,
     UsersModule,
     ProductsModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

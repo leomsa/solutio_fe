@@ -7,6 +7,7 @@ import {ListComponent} from './list/list.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatTableModule} from "@angular/material/table";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -14,12 +15,14 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     EditionComponent,
     ListComponent
   ],
-    imports: [
-        CommonModule,
-        ProductsRoutingModule,
-        MatCardModule,
-        MatTableModule,
-        MatToolbarModule
-    ]
+  imports: [
+    CommonModule,
+    ProductsRoutingModule,
+    MatCardModule,
+    MatTableModule,
+    MatToolbarModule,
+    HttpClientModule
+  ]
 })
-export class ProductsModule { }
+export class ProductsModule {
+}
