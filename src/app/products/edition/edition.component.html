@@ -1,1 +1,32 @@
-<p>edition works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Cadastro de Produto</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <!-- Nome -->
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="name" required>
+      </mat-form-field>
+
+      <!-- Fornecedor -->
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Fornecedor</mat-label>
+        <input matInput formControlName="supplier" required>
+      </mat-form-field>
+
+      <!-- Preço -->
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Preço</mat-label>
+        <input matInput formControlName="price" type="number" step="0.01" required>
+      </mat-form-field>
+
+      <div class="button-group">
+        <button mat-button type="submit" color="primary">Salvar</button>
+        <button mat-button [routerLink]="['/products']" color="warn">Cancelar</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
