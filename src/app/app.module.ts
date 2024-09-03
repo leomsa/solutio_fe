@@ -6,11 +6,12 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {UsersModule} from "./users/users.module";
-import {ProductsModule} from "./products/products.module";
 import {MatCardModule} from '@angular/material/card';
 import {HttpClientModule} from "@angular/common/http";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {ProductsModule} from "./products/products.module";
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -13,7 +13,6 @@ import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
-    EditionComponent,
     ListComponent
   ],
   imports: [
@@ -23,7 +22,8 @@ import {MatIconModule} from "@angular/material/icon";
     MatTableModule,
     MatToolbarModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    EditionComponent
   ]
 })
 export class ProductsModule {

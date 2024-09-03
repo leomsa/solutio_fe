@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, FormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductsService} from "src/app/products/service/products.service";
 
@@ -8,11 +8,12 @@ import {ProductsService} from "src/app/products/service/products.service";
   templateUrl: './edition.component.html',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   styleUrls: ['./edition.component.scss']
 })
-export class ProductFormComponent implements OnInit {
+export class EditionComponent implements OnInit {
   productForm!: FormGroup;
   isEditMode: boolean = false;
   productId!: number;
