@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, FormsModule, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductsService} from "src/app/products/service/products.service";
 
@@ -7,11 +7,15 @@ import {ProductsService} from "src/app/products/service/products.service";
   selector: 'app-edition',
   templateUrl: './edition.component.html',
   standalone: true,
+  imports: [
+    FormsModule
+  ],
   styleUrls: ['./edition.component.scss']
 })
 export class ProductFormComponent implements OnInit {
   productForm!: FormGroup;
   isEditMode: boolean = false;
+  productId!: number;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,6 +32,7 @@ export class ProductFormComponent implements OnInit {
       const id = params['id'];
       if (id) {
         this.isEditMode = true;
+        this.productId = id;
         this.loadProductData(id);
       }
     });
@@ -53,7 +58,12 @@ export class ProductFormComponent implements OnInit {
     }
 
     if (this.isEditMode) {
-      this.productService.updateProduct(this.productForm.value).subscribe(() => {
+      const updatedProduct = {
+        ...this.productForm.value,
+        id: this.productId
+      };
+
+      this.productService.updateProduct(updatedProduct.id, updatedProduct).subscribe(() => {
         this.router.navigate(['/products']);
       });
     } else {

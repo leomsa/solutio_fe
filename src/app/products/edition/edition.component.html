@@ -1,13 +1,12 @@
-<h1>Cadastro de Produto</h1>
-<form autocomplete="off" [formGroup]="productForm">
-  <mat-label class="label">Nome do Produto:</mat-label>
-  <input matInput formControlName="name" required><br><br>
+<form (ngSubmit)="saveProduct()">
+  <label for="name">Product Name:</label>
+  <input id="name" [(ngModel)]="product.name" name="name" required>
 
-  <mat-label class="label">Fornecedor:</mat-label>
-  <input matInput formControlName="supplier" required><br><br>
+  <label for="supplier">Supplier:</label>
+  <input id="supplier" [(ngModel)]="product.supplier" name="supplier" required>
 
-  <mat-label class="label">Preço:</mat-label>
-  <input matInput formControlName="price" type="number" required><br><br>
+  <label for="price">Price:</label>
+  <input id="price" type="number" [(ngModel)]="product.price" name="price" required>
+
+  <button type="submit">Save</button>
 </form>
-<button mat-button color="primary" (click)="saveProduct()">Salvar</button>
-<button mat-button color="warn" (click)="cancel()">Cancelar</button>
