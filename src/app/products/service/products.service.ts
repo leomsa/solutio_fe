@@ -15,7 +15,7 @@ export class ProductsService {
   private readonly API_DELETE = 'http://localhost:8080/products'
   private readonly API_CREATE = 'http://localhost:8080/products/product'
   private readonly API_FIND = 'http://localhost:8080/products'
-
+  private readonly API_UPDATE = 'http://localhost:8080/products'
   listAllProducts() {
     return this.httpClient.get<Products[]>(this.API);
   }
@@ -31,5 +31,10 @@ export class ProductsService {
 
   getProductById(id: number): Observable<Products> {
     return this.httpClient.get<Products>(`${this.API_FIND}/${id}`);
+  }
+
+  updateProduct(id: number, product: Products): Observable<Products> {
+    const url = `${this.API_UPDATE}/${id}`;
+    return this.httpClient.put<Products>(url, product);
   }
 }
