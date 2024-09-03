@@ -30,11 +30,10 @@ export class EditionComponent implements OnInit {
     this.initForm();
 
     this.activatedRoute.params.subscribe(params => {
-      const id = params['id'];
-      if (id) {
+      this.productId = +params['id'];
+      if (this.productId) {
         this.isEditMode = true;
-        this.productId = id;
-        this.loadProductData(id);
+        this.loadProductData(this.productId);
       }
     });
   }
