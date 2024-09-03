@@ -46,4 +46,9 @@ export class ListComponent implements OnInit {
   navigateToProductForm() {
     this.router.navigate(['/products/edition']);
   }
+
+  onLogout(): void {
+    console.log('Logout button clicked');
+    this.router.navigate(['/login']);
+  }
 }

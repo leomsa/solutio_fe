@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {ListComponent} from "./list/list.component";
 import {EditionComponent} from "./edition/edition.component";
+import {EditionLoginComponent} from "../login/edition-login/edition-login.component";
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'edition/:id',
         component: EditionComponent
+      },
+      {
+        path: 'users/login',
+        component: EditionLoginComponent
       }
 
     ]
