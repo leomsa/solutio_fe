@@ -14,6 +14,7 @@ export class ProductsService {
   private readonly API = 'http://localhost:8080/products/allproducts'
   private readonly API_DELETE = 'http://localhost:8080/products'
   private readonly API_CREATE = 'http://localhost:8080/products/product'
+  private readonly API_FIND = 'http://localhost:8080/products'
 
   listAllProducts() {
     return this.httpClient.get<Products[]>(this.API);
@@ -26,5 +27,9 @@ export class ProductsService {
 
   createProduct(product: { name: string; supplier: string; price: number }): Observable<any> {
     return this.httpClient.post(this.API_CREATE, product);
+  }
+
+  getProductById(id: number): Observable<Products> {
+    return this.httpClient.get<Products>(`${this.API_FIND}/${id}`);
   }
 }
