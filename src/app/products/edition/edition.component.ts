@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ProductsService} from "src/app/products/service/products.service";
+
 @Component({
   selector: 'app-edition',
   templateUrl: './edition.component.html',
@@ -12,31 +13,28 @@ export class EditionComponent implements OnInit {
   productForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     private productService: ProductsService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
   ) {
-    this.productForm = this.fb.group({
+    this.productForm = this.formBuilder.group({
       name: ['', Validators.required],
       supplier: ['', Validators.required],
       price: [0, [Validators.required, Validators.min(0)]]
     });
   }
 
-  onSubmit(): void {
-    if (this.productForm.valid) {
-      const product = this.productForm.value;
-      this.productService.createProduct(product).subscribe({
-        next: () => {
-          this.router.navigate(['/products']);
-        },
-        error: (err) => {
-          console.error('Erro ao salvar produto', err);
-        }
-      });
-    }
-  }
 
   ngOnInit(): void {
+    this.initForm();
+  }
+
+  initForm(): void {
+    this.productForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      supplier: ['', Validators.required],
+      price: ['', [Validators.required, Validators.min(0)]]
+    });
   }
 }
