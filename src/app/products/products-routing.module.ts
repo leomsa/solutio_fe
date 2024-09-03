@@ -16,7 +16,12 @@ const routes: Routes = [
       {
         path: 'edition',
         component: EditionComponent
+      },
+      {
+        path: 'edition/:id',
+        component: EditionComponent
       }
+
     ]
   }
 ];
