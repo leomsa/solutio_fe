@@ -43,4 +43,7 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  navigateToProductForm() {
+    this.router.navigate(['/products/edition']);
+  }
 }

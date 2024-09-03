@@ -1,3 +1,15 @@
+<mat-toolbar>
+  <span>Lista de Produtos</span>
+  <span>
+      <div>
+        <span style="margin-left:70em">Cadastrar</span>
+      <button mat-icon-button (click)="navigateToProductForm()" ><mat-icon>add</mat-icon></button>
+        <span style="margin-left:3em"> Logout
+      <button mat-icon-button><mat-icon>logout</mat-icon></button>
+          </span>
+      </div>
+    </span>
+</mat-toolbar>
 <mat-card>
   <div *ngIf="products$ | async as products">
     <table mat-table [dataSource]="products$" class="mat-elevation-z8">
