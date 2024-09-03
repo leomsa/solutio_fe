@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Products} from "../model/Product";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {User} from "../model/User";
 
 @Injectable({
     providedIn: 'root'
@@ -16,6 +17,8 @@ export class ProductsService {
   private readonly API_CREATE = 'http://localhost:8080/products/product'
   private readonly API_FIND = 'http://localhost:8080/products'
   private readonly API_UPDATE = 'http://localhost:8080/products'
+  private readonly API_LOGIN = 'http://localhost:8080/users/login'
+
   listAllProducts() {
     return this.httpClient.get<Products[]>(this.API);
   }
@@ -36,5 +39,9 @@ export class ProductsService {
   updateProduct(id: number, product: Products): Observable<Products> {
     const url = `${this.API_UPDATE}/${id}`;
     return this.httpClient.put<Products>(url, product);
+  }
+
+  login(user: User): Observable<User> {
+    return this.httpClient.post<User>(this.API_LOGIN, user);
   }
 }
