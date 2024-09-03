@@ -1,8 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import {EditionComponent} from "../users/edition/edition.component";
+
 import {ListComponent} from "./list/list.component";
+import {EditionComponent} from "./edition/edition.component";
 
 const routes: Routes = [
   {
